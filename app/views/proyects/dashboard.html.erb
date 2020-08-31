@@ -1,0 +1,42 @@
+<!--Creación de Dashboard por TRubilarP-->
+<h3 class="text-center m-5">Dashboard</h3>
+
+ <div class="m-3">
+        <form class="form-inline my-4 my-lg-0 justify-content-md-end" method="get" action="">
+            <label for="stateProject">Filtro: &nbsp;</label>
+            <select name="state_filter" id="stateProject" aria-describedby="stateProjectlHelp" class="rounded-pill">
+                <option disabled="disabled" selected="true" value="Todos">Todos </option>
+                <option value="Propuesta">Propuesta </option>
+                <option value="En Progreso">En progreso</option>
+                <option value="Terminado">Terminado</option>
+            </select>
+            &nbsp;<button class="btn btn-primary my-2 my-sm-0 rounded-pill" type="submit">Buscar</button>
+        </form>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="bg-light text-dark text-center">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">DESCRIPCION</th>
+                    <th scope="col">FECHA INICIO</th>
+                    <th scope="col">FECHA TERMINO</th>
+                    <th scope="col">ESTADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @project.each do |p| %>
+                <tr class="text-center">
+                    <th scope="row"><%= p.id %></th>
+                    <td><%= p.name %></td>
+                    <td><%= p.description %></td>
+                    <td><%= p.start_date %></td>
+                    <td><%= p.end_date %></td>
+                    <td><%= p.state %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
